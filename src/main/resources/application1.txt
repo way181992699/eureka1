@@ -1,0 +1,64 @@
+##应用名称
+#spring:
+#  application:
+#    name: discover-server
+#
+#
+##集群中第一个
+#---
+#spring:
+#  profiles: integration1
+#
+##端口
+#server:
+#  port: 8080
+#
+##自身配置：关闭客户端身份
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    #registerWithEureka: false
+#    #fetchRegistry: false
+#    serviceUrl:
+#      defaultZone: http://user:user123@localhost:8181/eureka/
+#    healthcheck:
+#      enabled: true
+#
+## 安全认证的配置
+#security:
+#  basic:
+#    enabled: true
+#  user:
+#    name: user  # 用户名
+#    password: user123   # 用户密码
+#
+##集群中第二个
+#---
+#spring:
+#  profiles: integration2
+#
+#server:
+#  port: 8181
+#
+##自身配置：关闭客户端身份
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    #registerWithEureka: false
+#    #fetchRegistry: false
+#    #做为客户端，集群中的其它服务器节点
+#    serviceUrl:
+#      defaultZone: http://user:user123@localhost:8080/eureka/
+#    #启用健康检查（心跳），否则，注册服务器中一直处于可用状态
+#    healthcheck:
+#      enabled: true
+#
+## 安全认证的配置
+#security:
+#  basic:
+#    enabled: true
+#  user:
+#    name: user  # 用户名
+#    password: user123   # 用户密码
